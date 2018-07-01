@@ -1,0 +1,43 @@
+// Mixin樣式
+$baseSize: 12px;
+$baseLineSize: 10px;
+$sizeLevel: 4px;
+$paddingLevel: 1.2;
+@function font($level: 0) {
+  @if $level < 0 {
+    $level: 0;
+  }
+  @return $baseSize+$sizeLevel * round($level); // round四捨五入
+  // 12px + 4px * 1
+}
+
+@function rhythm($size) {
+  @return ceil($size * $paddingLevel / $baseLineSize) * $baseLineSize; //  ceil(16px * 1.2 / 10px)
+}
+
+// font-size: 20px
+// line-height 作法: 1.2 => 24px
+// 活著的價值XDD
+@mixin font($level: 1, $line-height: auto) {
+  $size: font($level); // 16px
+  $line: rhythm($size); // 20px
+  font-size: $size;
+  @if $line-height==auto or $line-height < $line {
+    line-height: $line;
+  }
+  @else {
+    line-height: $line-height;
+  }
+}
+
+@function line($count: 1, $baseLineHeight: 10px) {
+  @return $baseLineHeight * $count;
+}
+
+// 產出level的迴圈
+@for $i from 0 through 5 {
+  .level#{$i} {
+    @include font($i);
+    margin: line($i/2) auto;
+  }
+}

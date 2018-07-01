@@ -1,13 +1,31 @@
 $width: 100%;
 $buttonNum: 6;
+// Extend(繼承)
 %button {
   display: block;
   text-decoration: none;
 }
 
+// function(函式)
+@function line($count: 1, $baseLineHeight: 10px) {
+  @return $baseLineHeight * $count;
+}
+
 html {
   margin: 0;
   padding: 0;
+}
+
+.aa {
+  padding: line(2, 12px);
+}
+
+.bb {
+  padding: line(1);
+}
+
+.cc {
+  padding: line(3);
 }
 
 // 巢狀

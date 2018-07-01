@@ -1,0 +1,30 @@
+%button {
+  text-decoration: none;
+  display: block;
+}
+
+
+
+@function line($count: 1, $baseLineHeight: 10px) {
+  @return $baseLineHeight * $count;
+}
+
+@mixin button() {
+  text-decoration: none;
+  display: block;
+}
+
+.aaa {
+  // @extend %button;
+  @include button();
+}
+
+.bbb {
+  // @extend %button;
+  @include button();
+}
+
+.ccc {
+  // @extend %button;
+  @include button();
+}
