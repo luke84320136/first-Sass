@@ -1,0 +1,26 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+// 巢狀
+.tablist {
+  >header {
+    >ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      //設定0為去除li的間隔
+      // font-size: 0; 
+    }
+    li {
+      //使用inline-block間隔會多一個字元
+      display: inline-block; 
+      width: calc(100% / 6);
+      /* font-size: 16px; */
+    }
+  }
+  >section {
+    color: red;
+  }
+}
